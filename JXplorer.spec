@@ -39,7 +39,11 @@ z X.500 posiadającego interfejs LDAPowy.
 
 %prep
 %setup -q -b 1 -n jxplorer
+
+%{__sed} -i -e 's,\r$,,' build.xml
+
 %patch0 -p0
+
 install %{SOURCE2} jxplorer.sh
 install %{SOURCE3} jxconfig.txt
 %{__sed} -i -e 's~==DATADIR==~%{_datadir}/%{name}~g' jxconfig.txt
