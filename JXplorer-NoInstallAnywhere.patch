@@ -1,0 +1,16 @@
+--- build.xml	2007-02-26 10:08:33.000000000 +0000
++++ build.xml.new	2008-07-14 20:50:56.000000000 +0000
+@@ -144,9 +144,11 @@
+             />
+     </target>
+ 
+-	<!-- note; this requires access to the 'iaant.jar' install anywhere jar file - added to ant lib -->
++	<!-- note; this requires access to the 'iaant.jar' install anywhere jar file - added to ant lib
+ 
+-	<taskdef name="buildinstaller" classname="com.zerog.ia.integration.ant.InstallAnywhereAntTask"/>
++	  <taskdef name="buildinstaller" classname="com.zerog.ia.integration.ant.InstallAnywhereAntTask"/>
++
++	-->
+ 
+ 	<target name="build_installers" description="build zerog install packages">
+ 
