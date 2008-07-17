@@ -19,6 +19,7 @@ BuildRequires:	ant
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	sed >= 4.0
 Requires:	javahelp
 Requires:	jpackage-utils
 Requires:	junit
