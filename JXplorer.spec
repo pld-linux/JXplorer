@@ -16,6 +16,7 @@ Source3:	%{name}.jxconfig.txt
 Patch0:		%{name}-NoInstallAnywhere.patch
 URL:		http://www.jxplorer.org/
 BuildRequires:	ant
+BuildRequires:	jar
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
