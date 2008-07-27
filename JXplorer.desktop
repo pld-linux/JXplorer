@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=JXplorer
+Name[pl]=JXplorer
+GenericName=LDAP Browser
+GenericName[pl]=Przeglądarka LDAP
+Comment=Java based general purpose LDAP Browser
+Comment[pl]=Przeglądarka LDAPa ogólnego przeznaczenia
+Exec=jxplorer
+Icon=jxplorer
+Terminal=false
+Type=Application
+Categories=Developmnent;Database;Java
+# vi: encoding=utf-8
