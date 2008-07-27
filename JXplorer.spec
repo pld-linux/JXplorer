@@ -4,7 +4,7 @@ Summary:	LDAP browser
 Summary(pl.UTF-8):	Przeglądarka LDAP
 Name:		JXplorer
 Version:	3.2
-Release:	0.1
+Release:	0.2
 License:	Computer Associates Open Source Software License
 Group:		Applications/Databases/Interfaces
 Source0:	http://dl.sourceforge.net/jxplorer/JXv%{version}deploy.tar.bz2
@@ -13,6 +13,7 @@ Source1:	http://dl.sourceforge.net/jxplorer/JXv%{version}src.tar.bz2
 # Source1-md5:	7773a4de17a935db2aaaf3984772fcb1
 Source2:	%{name}.sh
 Source3:	%{name}.jxconfig.txt
+Source4:	%{name}.desktop
 Patch0:		%{name}-NoInstallAnywhere.patch
 URL:		http://www.jxplorer.org/
 BuildRequires:	ant
@@ -21,6 +22,7 @@ BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 BuildRequires:	sed >= 4.0
+BuildRequires:	icoutils
 Requires:	javahelp
 Requires:	jpackage-utils
 Requires:	junit
@@ -43,6 +45,8 @@ z X.500 posiadającego interfejs LDAPowy.
 %setup -q -b 1 -n jxplorer
 
 %{__sed} -i -e 's,\r$,,' build.xml
+
+icotool -x -o jxplorer.png jxplorer.ico
 
 %patch0 -p0
 
@@ -101,6 +105,10 @@ install log4j.xml $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/log4j.xml
 install jxconfig.txt $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/jxconfig.txt
 install connections.txt $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/connections.txt
 
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
+install %{SOURCE4} $RPM_BUILD_ROOT%{_desktopdir}/jxplorer.desktop
+install jxplorer.png $RPM_BUILD_ROOT%{_pixmapsdir}/jxplorer.png
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -109,6 +117,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/jxplorer
 %{_javadir}/%{name}
 %{_datadir}/%{name}
+%{_pixmapsdir}/jxplorer.png
+%{_desktopdir}/jxplorer.desktop
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/connections.txt
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/log4j.xml
