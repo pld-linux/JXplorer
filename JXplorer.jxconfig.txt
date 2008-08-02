@@ -24,8 +24,8 @@ dir.htmldocs===DATADIR==/htmldocs/
 dir.icons===DATADIR==/icons/
 dir.images===DATADIR==/images/
 dir.local===DATADIR==/
-dir.plugins===DATADIR==/plugins/
-dir.templates===DATADIR==/templates/
+dir.plugins=plugins/
+dir.templates=templates/
 
 #getSystemEnvironment  Set this to true if you wish to add the system environment properties to the JX list (e.g. if you are setting JX properties via system variables)
 getSystemEnvironment=false
