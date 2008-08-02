@@ -13,10 +13,12 @@ if ! [ -d "$HOME/.JXplorer" ]; then
   mkdir "$HOME/.JXplorer"
   cp /etc/JXplorer/connections.txt "$HOME/.JXplorer/connections.txt"
   ln -s /etc/JXplorer/log4j.xml "$HOME/.JXplorer/log4j.xml"
-  ln -s /etc/JXplorer/jxconfig.txt "$HOME/.JXplorer/jxconfig.txt"
+  cp /etc/JXplorer/jxconfig.txt "$HOME/.JXplorer/jxconfig.txt"
+  ln -s $JX_DATADIR/templates "$HOME/.JXplorer/templates"
+  ln -s $JX_DATADIR/security "$HOME/.JXplorer/security"
 fi
 
-cd "$JX_DATADIR"
+cd "$HOME/.JXplorer"
 CLASSPATH=`build-classpath junit jhall`
 CLASSPATH="$CLASSPATH:$JX_JAVADIR/jxplorer.jar:$JX_JAVADIR/help.jar"
 export CLASSPATH
