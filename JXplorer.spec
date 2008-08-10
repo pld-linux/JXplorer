@@ -17,14 +17,15 @@ Source4:	%{name}.desktop
 Patch0:		%{name}-NoInstallAnywhere.patch
 URL:		http://www.jxplorer.org/
 BuildRequires:	ant
+BuildRequires:	icoutils
 BuildRequires:	jar
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 BuildRequires:	sed >= 4.0
-BuildRequires:	icoutils
 Requires:	javahelp
 Requires:	jpackage-utils
+Requires:	jre-X11
 Requires:	junit
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
