@@ -1,6 +1,6 @@
 #!/bin/sh
 
-! [ -r /usr/share/java-utils/java-functions ] && exit 1
+[ -r /usr/share/java-utils/java-functions ] || exit 1
 
 . /usr/share/java-utils/java-functions 
 
