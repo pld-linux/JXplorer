@@ -1,4 +1,3 @@
-#
 %include	/usr/lib/rpm/macros.java
 Summary:	LDAP browser
 Summary(pl.UTF-8):	Przeglądarka LDAP
@@ -31,16 +30,16 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-JXplorer is a standards compliant general purpose ldap browser that
-can be used to read and search any ldap directory, or any X.500
-directory with an ldap interface. It is available for immediate free
+JXplorer is a standards compliant general purpose LDAP browser that
+can be used to read and search any LDAP directory, or any X.500
+directory with an LDAP interface. It is available for immediate free
 download under a standard OSI-style open source licence.
 
 %description -l pl.UTF-8
 JXplorer jest zgodną ze standardami przeglądarką LDAP ogólnego
 przeznaczenia. Programu tego można używać do przeglądania i
 modyfikowania dowolnego katalogu LDAP, lub dowolnego katalogu zgodnego
-z X.500 posiadającego interfejs LDAPowy.
+z X.500 posiadającego interfejs LDAP.
 
 %prep
 %setup -q -b 1 -n jxplorer
@@ -115,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc RELEASE.TXT example.ldif licence.txt
 %attr(755,root,root) %{_bindir}/jxplorer
 %{_javadir}/%{name}
 %{_datadir}/%{name}
@@ -125,7 +125,3 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/log4j.xml
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/jxconfig.txt
 %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/jxplorer
-
-%doc example.ldif
-%doc licence.txt
-%doc RELEASE.TXT
