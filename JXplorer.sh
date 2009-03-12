@@ -4,11 +4,16 @@
 
 . /usr/share/java-utils/java-functions 
 
-OPTIONS=-Djxplorer.config="$HOME/.JXplorer"
-JX_JAVADIR=/usr/share/java/JXplorer
-JX_DATADIR=/usr/share/JXplorer
+if [ -r /etc/sysconfig/jxplorer ]; then
+	. /etc/sysconfig/jxplorer
+fi
 
-JAVA_BIN="$JAVA_HOME/bin/java"
+export JAVA_HOME
+
+JX_JAVADIR=${JX_JAVADIR:-"/usr/share/java/JXplorer"}
+JX_DATADIR=${JX_DATADIR:-"/usr/share/JXplorer"}
+
+JAVA_BIN=${JAVA_BIN:-"$JAVA_HOME/bin/java"}
 
 if ! [ -d "$HOME/.JXplorer" ]; then
   mkdir "$HOME/.JXplorer"
@@ -20,7 +25,7 @@ if ! [ -d "$HOME/.JXplorer" ]; then
 fi
 
 cd "$HOME/.JXplorer"
-CLASSPATH=`build-classpath junit jhall JXplorer`
+CLASSPATH=$(build-classpath junit jhall JXplorer)
 
 if [ "$#" == "0" ]; then
     run com.ca.directory.jxplorer.JXplorer < /dev/null > /dev/null 2>&1 &
