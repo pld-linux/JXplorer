@@ -18,7 +18,7 @@ URL:		http://www.jxplorer.org/
 BuildRequires:	ant
 BuildRequires:	icoutils
 BuildRequires:	jar
-BuildRequires:	java-sun
+BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
