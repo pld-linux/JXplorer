@@ -21,8 +21,9 @@ BuildRequires:	jar
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	sed >= 4.0
+BuildConflicts:	java-gcj-compat-devel
 Requires:	java-help
 Requires:	jpackage-utils
 Requires:	jre-X11
@@ -45,7 +46,7 @@ z X.500 posiadającego interfejs LDAP.
 %prep
 %setup -q -b 1 -n jxplorer
 
-%{__sed} -i -e 's,\r$,,' build.xml
+%undos build.xml
 
 icotool -x -o jxplorer.png jxplorer.ico
 
