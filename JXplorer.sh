@@ -8,12 +8,8 @@ if [ -r /etc/sysconfig/jxplorer ]; then
 	. /etc/sysconfig/jxplorer
 fi
 
-export JAVA_HOME
-
 JX_JAVADIR=${JX_JAVADIR:-"/usr/share/java/JXplorer"}
 JX_DATADIR=${JX_DATADIR:-"/usr/share/JXplorer"}
-
-JAVA_BIN=${JAVA_BIN:-"$JAVA_HOME/bin/java"}
 
 if ! [ -d "$HOME/.JXplorer" ]; then
   mkdir "$HOME/.JXplorer"
