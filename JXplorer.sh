@@ -22,11 +22,13 @@ fi
 
 cd "$HOME/.JXplorer"
 CLASSPATH=$(build-classpath junit jhall JXplorer)
+MAIN_CLASS=com.ca.directory.jxplorer.JXplorer
+JAVA_HOME=@JVMDIR@/java-sun-jre
 
 if [ "$#" == "0" ]; then
-    run com.ca.directory.jxplorer.JXplorer < /dev/null > /dev/null 2>&1 &
+    run < /dev/null > /dev/null 2>&1 &
   else if [ "$1" = "console" ] ; then
-    run com.ca.directory.jxplorer.JXplorer
+    run
   else
     echo "Usage: $0 [console|help]"
   fi

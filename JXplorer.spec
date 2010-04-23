@@ -1,9 +1,12 @@
+# NOTE:
+# - it builds with any JDK, but it runs on java-sun only. It's not able to
+#   connect to LDAP on icedtea6
 %include	/usr/lib/rpm/macros.java
 Summary:	LDAP browser
 Summary(pl.UTF-8):	Przeglądarka LDAP
 Name:		JXplorer
 Version:	3.2
-Release:	2
+Release:	3
 License:	Computer Associates Open Source Software License
 Group:		Applications/Databases/Interfaces
 Source0:	http://dl.sourceforge.net/jxplorer/JXv%{version}deploy.tar.bz2
@@ -25,9 +28,9 @@ BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	sed >= 4.0
 BuildConflicts:	java-gcj-compat-devel
 Requires:	java-help
-Requires:	jpackage-utils
-Requires:	jre-X11
 Requires:	java-junit
+Requires:	java-sun-jre-base-X11
+Requires:	jpackage-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,7 +57,8 @@ icotool -x -o jxplorer.png jxplorer.ico
 
 install %{SOURCE2} jxplorer.sh
 install %{SOURCE3} jxconfig.txt
-%{__sed} -i -e 's~==DATADIR==~%{_datadir}/%{name}~g' jxconfig.txt
+%{__sed} -i -e 's~@DATADIR@~%{_datadir}/%{name}~g' jxconfig.txt
+%{__sed} -i -e 's~@JVMDIR@~%{_jvmdir}~g' jxconfig.sh
 
 echo 'JX_JAVADIR=%{_javadir}/%{name}' > jxplorer.sysconfig
 echo 'JX_DATADIR=%{_datadir}/%{name}' >> jxplorer.sysconfig

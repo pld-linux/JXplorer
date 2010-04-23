@@ -19,11 +19,11 @@ baseDN=c\=au
 com.ca.level=UNUSED
 
 #dir  this sets the directories that JXplorer reads its resources from.
-dir.help===DATADIR==/help/
-dir.htmldocs===DATADIR==/htmldocs/
-dir.icons===DATADIR==/icons/
-dir.images===DATADIR==/images/
-dir.local===DATADIR==/
+dir.help=@DATADIR@/help/
+dir.htmldocs=@DATADIR@/htmldocs/
+dir.icons=@DATADIR@/icons/
+dir.images=@DATADIR@/images/
+dir.local=@DATADIR@/
 dir.plugins=plugins/
 dir.templates=templates/
 
