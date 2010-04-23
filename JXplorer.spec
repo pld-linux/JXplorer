@@ -76,7 +76,7 @@ install jxplorer.sh $RPM_BUILD_ROOT%{_bindir}/jxplorer
 
 install -d $RPM_BUILD_ROOT%{_javadir}/%{name}
 install jxplorer.jar $RPM_BUILD_ROOT%{_javadir}/jxplorer-%{version}.jar
-ln -s jxplorer-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jxplorer-%{version}.jar
+ln -s jxplorer-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jxplorer.jar
 
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/{htmldocs,icons,images,language,security,conftemplate}
 install htmldocs/* $RPM_BUILD_ROOT%{_datadir}/%{name}/htmldocs
