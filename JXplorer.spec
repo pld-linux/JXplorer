@@ -57,11 +57,8 @@ icotool -x -o jxplorer.png jxplorer.ico
 
 install %{SOURCE2} jxplorer.sh
 install %{SOURCE3} jxconfig.txt
-%{__sed} -i -e 's~@DATADIR@~%{_datadir}/%{name}~g' jxconfig.txt
-%{__sed} -i -e 's~@JVMDIR@~%{_jvmdir}~g' jxconfig.sh
-
-echo 'JX_JAVADIR=%{_javadir}/%{name}' > jxplorer.sysconfig
-echo 'JX_DATADIR=%{_datadir}/%{name}' >> jxplorer.sysconfig
+%{__sed} -i -e 's~@DATADIR@~%{_datadir}/%{name}~g' jxconfig.txt jxplorer.sh
+%{__sed} -i -e 's~@JVMDIR@~%{_jvmdir}~g' jxplorer.sh
 
 %build
 export JAVA_HOME="%{java_home}"
@@ -74,16 +71,12 @@ export LC_ALL=en_US # source code not US-ASCII
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/sysconfig
-install jxplorer.sysconfig $RPM_BUILD_ROOT/etc/sysconfig/jxplorer
 install -d $RPM_BUILD_ROOT%{_bindir}
 install jxplorer.sh $RPM_BUILD_ROOT%{_bindir}/jxplorer
 
 install -d $RPM_BUILD_ROOT%{_javadir}/%{name}
-install jxplorer.jar $RPM_BUILD_ROOT%{_javadir}/%{name}/jxplorer-%{version}.jar
-install jars/help.jar $RPM_BUILD_ROOT%{_javadir}/%{name}/help-%{version}.jar
-ln -s jxplorer-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}/jxplorer.jar
-ln -s help-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}/help.jar
+install jxplorer.jar $RPM_BUILD_ROOT%{_javadir}/jxplorer-%{version}.jar
+ln -s jxplorer-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/jxplorer-%{version}.jar
 
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/{htmldocs,icons,images,language,security,conftemplate}
 install htmldocs/* $RPM_BUILD_ROOT%{_datadir}/%{name}/htmldocs
@@ -122,7 +115,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc RELEASE.TXT example.ldif licence.txt
 %attr(755,root,root) %{_bindir}/jxplorer
-%{_javadir}/%{name}
+%{_javadir}/jxplorer.jar
+%{_javadir}/jxplorer-%{version}.jar
 %{_datadir}/%{name}
 %{_pixmapsdir}/jxplorer.png
 %{_desktopdir}/jxplorer.desktop
@@ -130,4 +124,3 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/connections.txt
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/log4j.xml
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/jxconfig.txt
-%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/jxplorer

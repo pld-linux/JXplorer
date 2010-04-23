@@ -8,8 +8,7 @@ if [ -r /etc/sysconfig/jxplorer ]; then
 	. /etc/sysconfig/jxplorer
 fi
 
-JX_JAVADIR=${JX_JAVADIR:-"/usr/share/java/JXplorer"}
-JX_DATADIR=${JX_DATADIR:-"/usr/share/JXplorer"}
+JX_DATADIR=${JX_DATADIR:-"@DATADIR@/JXplorer"}
 
 if ! [ -d "$HOME/.JXplorer" ]; then
   mkdir "$HOME/.JXplorer"
@@ -21,7 +20,7 @@ if ! [ -d "$HOME/.JXplorer" ]; then
 fi
 
 cd "$HOME/.JXplorer"
-CLASSPATH=$(build-classpath junit jhall JXplorer)
+CLASSPATH=$(build-classpath junit jhall jxplorer)
 MAIN_CLASS=com.ca.directory.jxplorer.JXplorer
 JAVA_HOME=@JVMDIR@/java-sun-jre
 
