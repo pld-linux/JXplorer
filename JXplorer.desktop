@@ -9,5 +9,5 @@ Exec=jxplorer
 Icon=jxplorer
 Terminal=false
 Type=Application
-Categories=Development;Database;Java;
+Categories=Network;Database;
 # vi: encoding=utf-8

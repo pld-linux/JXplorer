@@ -6,7 +6,7 @@ Summary:	LDAP browser
 Summary(pl.UTF-8):	Przeglądarka LDAP
 Name:		JXplorer
 Version:	3.2
-Release:	3
+Release:	4
 License:	Computer Associates Open Source Software License
 Group:		Applications/Databases/Interfaces
 Source0:	http://dl.sourceforge.net/jxplorer/JXv%{version}deploy.tar.bz2
