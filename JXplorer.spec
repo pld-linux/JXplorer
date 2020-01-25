@@ -1,7 +1,6 @@
 # NOTE:
 # - it builds with any JDK, but it runs on java-sun only. It's not able to
 #   connect to LDAP on icedtea6
-%include	/usr/lib/rpm/macros.java
 Summary:	LDAP browser
 Summary(pl.UTF-8):	Przeglądarka LDAP
 Name:		JXplorer
