@@ -52,7 +52,7 @@ z X.500 posiadającego interfejs LDAP.
 
 icotool -x -o jxplorer.png jxplorer.ico
 
-%patch0 -p0
+%patch -P0 -p0
 
 install %{SOURCE2} jxplorer.sh
 install %{SOURCE3} jxconfig.txt
